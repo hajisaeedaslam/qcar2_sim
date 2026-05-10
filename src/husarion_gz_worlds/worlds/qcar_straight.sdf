@@ -1,0 +1,354 @@
+<?xml version="1.0" ?>
+<!--
+  QCar2 Straight Calibration Track.
+
+  A straight version of the round track using the SAME lane width and
+  ring spacing (inner=1.7m, outer=2.3m, centre=2.0m) so any perception
+  parameter you tune here (lane_width_bev_px, src_*) carries over to
+  qcar_track.sdf without re-tuning.
+
+  Lane runs along +Y from y=0 to y=30.0. With the existing simulation
+  launch (spawn at x=2.0, y=0, yaw=pi/2), the car spawns at the start of
+  the lane facing forward down the lane.
+
+  Centre line uses LONGITUDINAL dashes (real-road style) — short white
+  stripes spaced along the direction of travel.
+-->
+<sdf version="1.6">
+  <world name="qcar_straight">
+
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+
+    <plugin filename="ignition-gazebo-physics-system"        name="gz::sim::systems::Physics" />
+    <plugin filename="ignition-gazebo-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster" />
+    <plugin filename="ignition-gazebo-user-commands-system"  name="gz::sim::systems::UserCommands" />
+    <plugin filename="ignition-gazebo-sensors-system"        name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin filename="ignition-gazebo-imu-system"            name="gz::sim::systems::Imu" />
+    <plugin filename="ignition-gazebo-contact-system"        name="gz::sim::systems::Contact" />
+
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation><range>1000</range><constant>0.9</constant><linear>0.01</linear><quadratic>0.001</quadratic></attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="c"><geometry><plane><normal>0 0 1</normal><size>100 100</size></plane></geometry></collision>
+        <visual name="v">
+          <geometry><plane><normal>0 0 1</normal><size>100 100</size></plane></geometry>
+          <material>
+            <ambient>0.25 0.25 0.25 1</ambient>
+            <diffuse>0.25 0.25 0.25 1</diffuse>
+            <specular>0.05 0.05 0.05 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Left  boundary (continuous white) at X=1.7 -->
+    <model name="left_line"><static>true</static>
+      <pose>1.7 15.0000 0.0010 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 30.0000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+
+    <!-- Right boundary (continuous white) at X=2.3 -->
+    <model name="right_line"><static>true</static>
+      <pose>2.3 15.0000 0.0010 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 30.0000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+
+    <!-- Outer orange "walls" (low, just for visual reference, no collision) -->
+    <model name="wall_left_outer"><static>true</static>
+      <pose>1.4 15.0000 0.0400 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 30.0000 0.08</size></box></geometry>
+        <material><ambient>0.9 0.35 0 1</ambient><diffuse>0.9 0.35 0 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="wall_right_outer"><static>true</static>
+      <pose>2.6 15.0000 0.0400 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 30.0000 0.08</size></box></geometry>
+        <material><ambient>0.9 0.35 0 1</ambient><diffuse>0.9 0.35 0 1</diffuse></material>
+      </visual></link>
+    </model>
+
+    <!-- Centre dashes (longitudinal, real-road style) -->
+    <model name="centre_dash_00"><static>true</static>
+      <pose>2.0000 0.4000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_01"><static>true</static>
+      <pose>2.0000 1.2000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_02"><static>true</static>
+      <pose>2.0000 2.0000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_03"><static>true</static>
+      <pose>2.0000 2.8000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_04"><static>true</static>
+      <pose>2.0000 3.6000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_05"><static>true</static>
+      <pose>2.0000 4.4000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_06"><static>true</static>
+      <pose>2.0000 5.2000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_07"><static>true</static>
+      <pose>2.0000 6.0000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_08"><static>true</static>
+      <pose>2.0000 6.8000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_09"><static>true</static>
+      <pose>2.0000 7.6000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_10"><static>true</static>
+      <pose>2.0000 8.4000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_11"><static>true</static>
+      <pose>2.0000 9.2000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_12"><static>true</static>
+      <pose>2.0000 10.0000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_13"><static>true</static>
+      <pose>2.0000 10.8000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_14"><static>true</static>
+      <pose>2.0000 11.6000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_15"><static>true</static>
+      <pose>2.0000 12.4000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_16"><static>true</static>
+      <pose>2.0000 13.2000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_17"><static>true</static>
+      <pose>2.0000 14.0000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_18"><static>true</static>
+      <pose>2.0000 14.8000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_19"><static>true</static>
+      <pose>2.0000 15.6000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_20"><static>true</static>
+      <pose>2.0000 16.4000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_21"><static>true</static>
+      <pose>2.0000 17.2000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_22"><static>true</static>
+      <pose>2.0000 18.0000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_23"><static>true</static>
+      <pose>2.0000 18.8000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_24"><static>true</static>
+      <pose>2.0000 19.6000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_25"><static>true</static>
+      <pose>2.0000 20.4000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_26"><static>true</static>
+      <pose>2.0000 21.2000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_27"><static>true</static>
+      <pose>2.0000 22.0000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_28"><static>true</static>
+      <pose>2.0000 22.8000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_29"><static>true</static>
+      <pose>2.0000 23.6000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_30"><static>true</static>
+      <pose>2.0000 24.4000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_31"><static>true</static>
+      <pose>2.0000 25.2000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_32"><static>true</static>
+      <pose>2.0000 26.0000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_33"><static>true</static>
+      <pose>2.0000 26.8000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_34"><static>true</static>
+      <pose>2.0000 27.6000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_35"><static>true</static>
+      <pose>2.0000 28.4000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+    <model name="centre_dash_36"><static>true</static>
+      <pose>2.0000 29.2000 0.0015 0 0 0</pose>
+      <link name="link"><visual name="v">
+        <geometry><box><size>0.05 0.4000 0.002</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+      </visual></link>
+    </model>
+
+  </world>
+</sdf>

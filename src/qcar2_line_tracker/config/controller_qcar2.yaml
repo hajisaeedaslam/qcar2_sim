@@ -1,0 +1,25 @@
+line_controller:
+  ros__parameters:
+    error_topic: /line_error
+    cmd_topic: /model/qcar2/cmd_vel
+
+    # P-gain on steering. Increase if the car is slow to correct; decrease if it oscillates.
+    kp: 0.8
+
+    # Forward speed when the line is visible (m/s).
+    base_speed: 0.35
+
+    # Forward speed when the line is lost.
+    search_speed: 0.10
+
+    # Angular velocity when searching (0.0 = drive straight).
+    search_angular: 0.0
+
+    # Control loop rate (Hz).
+    control_rate: 20.0
+
+    # How long to keep using the last valid error before switching to SEARCH.
+    error_timeout: 1.0
+
+    # How often to print status to the terminal (seconds).
+    log_period: 0.5

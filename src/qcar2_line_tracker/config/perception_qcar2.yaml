@@ -1,0 +1,28 @@
+line_perception:
+  ros__parameters:
+    image_topic: /qcar2/front_camera/image
+    error_topic: /line_error
+    debug_topic: /qcar2/debug_image
+
+    # HSV range for white lane lines.
+    # Raise hsv_lo[2] (brightness floor) if boundary walls are also white.
+    hsv_lo: [0, 0, 180]
+    hsv_hi: [179, 60, 255]
+
+    # Bottom ROI: fraction of image height at which scanning starts.
+    roi_top: 0.5
+
+    # Number of horizontal scan rows spread across the ROI.
+    num_scan_rows: 20
+
+    # Minimum white pixels in a row to count as a line hit.
+    min_pixels_per_row: 3
+
+    # When only ONE line is visible, the midpoint is estimated as:
+    #   visible_line_x  +/-  single_line_offset_frac * (image_width / 2)
+    # Tune this so the car stays centred when one line temporarily disappears.
+    # 0.3 works well when the lane is ~60% of image width.
+    single_line_offset_frac: 0.3
+
+    # Morphology kernel to clean up the white mask.
+    kernel_size: 3

@@ -39,7 +39,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://qcar2/meshes/QCar2Body.stl" 
+                <mesh filename="file:///home/hammad/rosbot_ws/install/qcar2/share/qcar2/meshes/QCar2Body.stl"
                 scale="0.1 0.1 0.1"/>
             </geometry>
             <material name="Grey"/>
@@ -85,7 +85,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 -0.01"/>
             <geometry>
-                <mesh filename="package://qcar2/meshes/QCar2Lidar.stl" 
+                <mesh filename="file:///home/hammad/rosbot_ws/install/qcar2/share/qcar2/meshes/QCar2Lidar.stl" 
                 scale="0.1 0.1 0.1"/>
             </geometry>
             <material name="Black"/>
@@ -119,9 +119,24 @@
     <joint name="csi_front_joint" type="fixed">
         <parent link="base_link"/>
         <child link="csi_front"/>
-        <origin rpy="-1.5708 0 -1.5708" xyz="0.198 0 0.1095"/>
+        <origin rpy="0 0 0" xyz="0.198 0 0.1095"/>
     </joint>
     <link name="csi_front">
+        <inertial>
+            <mass value="0.01"/>
+            <inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.00001"/>
+        </inertial>
+        <visual>
+            <geometry>
+                <box size="0.02 0.02 0.02"/>
+            </geometry>
+            <material name="Black"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.02 0.02 0.02"/>
+            </geometry>
+        </collision>
     </link>
 
     <joint name="csi_back_joint" type="fixed">
@@ -172,7 +187,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://qcar2/meshes/QCarSteeringHubL.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="file:///home/hammad/rosbot_ws/install/qcar2/share/qcar2/meshes/QCarSteeringHubL.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="Black"/>
         </visual>
@@ -193,7 +208,7 @@
         <visual>
             <origin rpy="-1.5708 0 3.14159" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://qcar2/meshes/QCarWheel.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="file:///home/hammad/rosbot_ws/install/qcar2/share/qcar2/meshes/QCarWheel.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="Black"/>
         </visual>
@@ -224,7 +239,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://qcar2/meshes/QCarSteeringHubR.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="file:///home/hammad/rosbot_ws/install/qcar2/share/qcar2/meshes/QCarSteeringHubR.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="Black"/>
         </visual>
@@ -245,7 +260,7 @@
         <visual>
             <origin rpy="1.5708 0 3.14159" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://qcar2/meshes/QCarWheel.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="file:///home/hammad/rosbot_ws/install/qcar2/share/qcar2/meshes/QCarWheel.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="Black"/>
         </visual>
@@ -275,7 +290,7 @@
         <visual>
             <origin rpy="-1.5708 0 3.14159" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://qcar2/meshes/QCarWheel.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="file:///home/hammad/rosbot_ws/install/qcar2/share/qcar2/meshes/QCarWheel.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="Black"/>
         </visual>
@@ -302,7 +317,7 @@
         <visual>
             <origin rpy="1.5708 0 3.14159" xyz="0 0 0"/>    
             <geometry>
-                <mesh filename="package://qcar2/meshes/QCarWheel.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="file:///home/hammad/rosbot_ws/install/qcar2/share/qcar2/meshes/QCarWheel.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="Black"/>
         </visual>
@@ -356,21 +371,80 @@
 
 <gazebo>
   <plugin
-    filename="gz-sim-ackermann-steering-system"
-    name="gz::sim::systems::AckermannSteering">
+    filename="gz-sim-diff-drive-system"
+    name="gz::sim::systems::DiffDrive">
+    <left_joint>wheel_rearLeft_joint</left_joint>
+    <right_joint>wheel_rearRight_joint</right_joint>
+    <wheels_separation>0.112</wheels_separation>
+    <wheels_radius>0.033</wheels_radius>
+    <odom_publish_frequency>50</odom_publish_frequency>
     <topic>/model/qcar2/cmd_vel</topic>
-    <left_steering_joint>base_hub_frontLeft</left_steering_joint>
-    <right_steering_joint>base_hub_frontRight</right_steering_joint>
-    <left_wheel_joint>hub_wheel_frontLeft</left_wheel_joint>
-    <right_wheel_joint>hub_wheel_frontRight</right_wheel_joint>
-    <rear_left_wheel_joint>base_wheel_rearLeft</rear_left_wheel_joint>
-    <rear_right_wheel_joint>base_wheel_rearRight</rear_right_wheel_joint>
-    
-    <wheel_base>0.256</wheel_base>
-    <wheel_separation>0.17</wheel_separation>
-    <kingpin_width>0.17</kingpin_width>
-    <steering_limit>0.5</steering_limit>
   </plugin>
+</gazebo>
+
+<gazebo>
+  <plugin filename="gz-sim-joint-state-publisher-system"
+          name="gz::sim::systems::JointStatePublisher">
+    <topic>/qcar2/joint_states</topic>
+    <joint_name>hub_frontLeft_joint</joint_name>
+    <joint_name>hub_frontRight_joint</joint_name>
+    <joint_name>wheel_frontLeft_joint</joint_name>
+    <joint_name>wheel_frontRight_joint</joint_name>
+    <joint_name>wheel_rearLeft_joint</joint_name>
+    <joint_name>wheel_rearRight_joint</joint_name>
+  </plugin>
+</gazebo>
+
+<!-- LiDAR sensor on lidar link (top of chassis) -->
+<gazebo reference="lidar">
+  <sensor name="gpu_lidar" type="gpu_lidar">
+    <topic>/qcar2/lidar/scan</topic>
+    <update_rate>10</update_rate>
+    <lidar>
+      <scan>
+        <horizontal>
+          <samples>360</samples>
+          <resolution>1</resolution>
+          <min_angle>-3.14159265</min_angle>
+          <max_angle>3.14159265</max_angle>
+        </horizontal>
+      </scan>
+      <range>
+        <min>0.08</min>
+        <max>12.0</max>
+        <resolution>0.01</resolution>
+      </range>
+      <noise>
+        <type>gaussian</type>
+        <mean>0.0</mean>
+        <stddev>0.01</stddev>
+      </noise>
+    </lidar>
+    <always_on>true</always_on>
+    <visualize>true</visualize>
+  </sensor>
+</gazebo>
+
+<!-- Front-facing RGB camera on csi_front link -->
+<gazebo reference="csi_front">
+  <sensor name="front_camera" type="camera">
+    <topic>/qcar2/front_camera/image</topic>
+    <update_rate>30</update_rate>
+    <camera>
+      <horizontal_fov>1.5708</horizontal_fov>
+      <image>
+        <width>640</width>
+        <height>480</height>
+        <format>R8G8B8</format>
+      </image>
+      <clip>
+        <near>0.01</near>
+        <far>100</far>
+      </clip>
+    </camera>
+    <always_on>true</always_on>
+    <visualize>false</visualize>
+  </sensor>
 </gazebo>
     
     <!-- ========================= Transmissions ========================= -->
