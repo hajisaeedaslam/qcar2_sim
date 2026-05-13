@@ -10,52 +10,54 @@ This repository contains the ROS 2 Jazzy and Gazebo Harmonic simulation environm
 
 ---
 
-## 1. Setup and Installation
+## Setup and Installation
 
-### Clone the Repository
+Clone the Repository
 ```bash
 git clone -b main [https://github.com/hajisaeedaslam/qcar2_sim.git](https://github.com/hajisaeedaslam/qcar2_sim.git)
 cd ~/qcar2_sim
 ```
-# Fix Hardcoded Paths
-# Currently, URDF/Xacro meshes use absolute paths. Ensure you update these to match your local user directory:
+Fix Hardcoded Paths
+Currently, URDF/Xacro meshes use absolute paths. Ensure you update these to match your local user directory:
 
-# Search for old paths
+Search for old paths
 ```bash
-grep -r "home/hajisaeed" src/urdf_representations
+grep -r "home/OLD_USERNAME" src/urdf_representations
 ```
-# Update paths in the relevant URDF/Xacro files to:
-# /home/[YOUR_USERNAME]/qcar2_sim/...
+Update paths in the relevant URDF/Xacro files to:
+/home/[YOUR_USERNAME]/qcar2_sim/...
 
-
-# Install Dependencies
+Install Dependencies
 ```bash
 sudo rosdep init
 rosdep update
 rosdep install --from-paths src --ignore-src -r -y
 ```
-# Building the Project
+Building the Project
 ```bash
 cd ~/qcar2_sim
 colcon build --symlink-install
 ```
-# Running the Simulation
-# Always source the workspace before launching:
+## Running the Simulation
+Always source the workspace before launching:
 ```bash
 source install/setup.bash
 ros2 launch qcar2 simulation.launch.py
 ```
-# Creating a New Feature Branch
+
+## Github Flows
+Creating a New Feature Branch
 ```bash
 git checkout -b branchName
 ```
-# Pushing changes safely
+Pushing changes safely
 ```bash
 git add .
 git commit -m "Description of changes"
 git push origin branchName
 ```
-# Reverting if things break
+
+Reverting if things break
 ```bash
 git checkout main
 ```
