@@ -1,3 +1,0 @@
-[console_scripts]
-line_controller_node = qcar2_line_tracker.line_controller_node:main
-line_perception_node = qcar2_line_tracker.line_perception_node:main

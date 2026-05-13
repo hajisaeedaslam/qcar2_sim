@@ -1,2 +1,0 @@
-Invoking command in '/home/hajisaeed/qcar2_sim/build/qcar2': /usr/bin/cmake /home/hajisaeed/qcar2_sim/src/urdf_representations/qcar2 -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/hajisaeed/qcar2_sim/install/qcar2
-Invoked command in '/home/hajisaeed/qcar2_sim/build/qcar2' returned '1': /usr/bin/cmake /home/hajisaeed/qcar2_sim/src/urdf_representations/qcar2 -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/hajisaeed/qcar2_sim/install/qcar2

@@ -1,1 +1,0 @@
-/home/hajisaeed/qcar2_sim/build/qcar2/ament_cmake_environment_hooks/local_setup.zsh
