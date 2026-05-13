@@ -1,0 +1,6 @@
+Invoking command in '/home/hajisaeed/qcar2_sim/build/qcar2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /home/hajisaeed/qcar2_sim/src/urdf_representations/qcar2 -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/hajisaeed/qcar2_sim/install/qcar2
+Invoked command in '/home/hajisaeed/qcar2_sim/build/qcar2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /home/hajisaeed/qcar2_sim/src/urdf_representations/qcar2 -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/hajisaeed/qcar2_sim/install/qcar2
+Invoking command in '/home/hajisaeed/qcar2_sim/build/qcar2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/hajisaeed/qcar2_sim/build/qcar2 -- -j12 -l12
+Invoked command in '/home/hajisaeed/qcar2_sim/build/qcar2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/hajisaeed/qcar2_sim/build/qcar2 -- -j12 -l12
+Invoking command in '/home/hajisaeed/qcar2_sim/build/qcar2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/hajisaeed/qcar2_sim/build/qcar2
+Invoked command in '/home/hajisaeed/qcar2_sim/build/qcar2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/hajisaeed/qcar2_sim/build/qcar2

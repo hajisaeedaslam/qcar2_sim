@@ -1,0 +1,2 @@
+Invoking command in '/home/hajisaeed/qcar2_sim/build/husarion_gz_worlds': /usr/bin/cmake /home/hajisaeed/qcar2_sim/src/husarion_gz_worlds -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/hajisaeed/qcar2_sim/install/husarion_gz_worlds
+Invoked command in '/home/hajisaeed/qcar2_sim/build/husarion_gz_worlds' returned '1': /usr/bin/cmake /home/hajisaeed/qcar2_sim/src/husarion_gz_worlds -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/hajisaeed/qcar2_sim/install/husarion_gz_worlds

@@ -1,0 +1,30 @@
+-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Configuring done (0.7s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/hajisaeed/qcar2_sim/build/qcar2
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /home/hajisaeed/qcar2_sim/install/qcar2/share/qcar2/urdf/QCar2.urdf
+-- Symlinking: /home/hajisaeed/qcar2_sim/install/qcar2/share/qcar2/meshes/QCar2Body.stl
+-- Symlinking: /home/hajisaeed/qcar2_sim/install/qcar2/share/qcar2/meshes/QCar2Lidar.stl
+-- Symlinking: /home/hajisaeed/qcar2_sim/install/qcar2/share/qcar2/meshes/QCarSteeringHubL.stl
+-- Symlinking: /home/hajisaeed/qcar2_sim/install/qcar2/share/qcar2/meshes/QCarSteeringHubR.stl
+-- Symlinking: /home/hajisaeed/qcar2_sim/install/qcar2/share/qcar2/meshes/QCarWheel.stl
+-- Symlinking: /home/hajisaeed/qcar2_sim/install/qcar2/share/qcar2/launch/simulation.launch.py
+-- Symlinking: /home/hajisaeed/qcar2_sim/install/qcar2/share/ament_index/resource_index/package_run_dependencies/qcar2
+-- Symlinking: /home/hajisaeed/qcar2_sim/install/qcar2/share/ament_index/resource_index/parent_prefix_path/qcar2
+-- Symlinking: /home/hajisaeed/qcar2_sim/install/qcar2/share/qcar2/environment/ament_prefix_path.sh
+-- Symlinking: /home/hajisaeed/qcar2_sim/install/qcar2/share/qcar2/environment/ament_prefix_path.dsv
+-- Symlinking: /home/hajisaeed/qcar2_sim/install/qcar2/share/qcar2/environment/path.sh
+-- Symlinking: /home/hajisaeed/qcar2_sim/install/qcar2/share/qcar2/environment/path.dsv
+-- Symlinking: /home/hajisaeed/qcar2_sim/install/qcar2/share/qcar2/local_setup.bash
+-- Symlinking: /home/hajisaeed/qcar2_sim/install/qcar2/share/qcar2/local_setup.sh
+-- Symlinking: /home/hajisaeed/qcar2_sim/install/qcar2/share/qcar2/local_setup.zsh
+-- Symlinking: /home/hajisaeed/qcar2_sim/install/qcar2/share/qcar2/local_setup.dsv
+-- Symlinking: /home/hajisaeed/qcar2_sim/install/qcar2/share/qcar2/package.dsv
+-- Symlinking: /home/hajisaeed/qcar2_sim/install/qcar2/share/ament_index/resource_index/packages/qcar2
+-- Symlinking: /home/hajisaeed/qcar2_sim/install/qcar2/share/qcar2/cmake/qcar2Config.cmake
+-- Symlinking: /home/hajisaeed/qcar2_sim/install/qcar2/share/qcar2/cmake/qcar2Config-version.cmake
+-- Symlinking: /home/hajisaeed/qcar2_sim/install/qcar2/share/qcar2/package.xml

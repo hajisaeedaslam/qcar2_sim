@@ -39,7 +39,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="file:///home/hammad/rosbot_ws/install/qcar2/share/qcar2/meshes/QCar2Body.stl"
+                <mesh filename="file:///home/hajisaeed/qcar2_sim/install/qcar2/share/qcar2/meshes/QCar2Body.stl"
                 scale="0.1 0.1 0.1"/>
             </geometry>
             <material name="Grey"/>
@@ -85,7 +85,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 -0.01"/>
             <geometry>
-                <mesh filename="file:///home/hammad/rosbot_ws/install/qcar2/share/qcar2/meshes/QCar2Lidar.stl" 
+                <mesh filename="file:///home/hajisaeed/qcar2_sim/install/qcar2/share/qcar2/meshes/QCar2Lidar.stl" 
                 scale="0.1 0.1 0.1"/>
             </geometry>
             <material name="Black"/>
@@ -187,7 +187,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="file:///home/hammad/rosbot_ws/install/qcar2/share/qcar2/meshes/QCarSteeringHubL.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="file:///home/hajisaeed/qcar2_sim/install/qcar2/share/qcar2/meshes/QCarSteeringHubL.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="Black"/>
         </visual>
@@ -208,7 +208,7 @@
         <visual>
             <origin rpy="-1.5708 0 3.14159" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="file:///home/hammad/rosbot_ws/install/qcar2/share/qcar2/meshes/QCarWheel.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="file:///home/hajisaeed/qcar2_sim/install/qcar2/share/qcar2/meshes/QCarWheel.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="Black"/>
         </visual>
@@ -239,7 +239,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="file:///home/hammad/rosbot_ws/install/qcar2/share/qcar2/meshes/QCarSteeringHubR.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="file:///home/hajisaeed/qcar2_sim/install/qcar2/share/qcar2/meshes/QCarSteeringHubR.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="Black"/>
         </visual>
@@ -260,7 +260,7 @@
         <visual>
             <origin rpy="1.5708 0 3.14159" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="file:///home/hammad/rosbot_ws/install/qcar2/share/qcar2/meshes/QCarWheel.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="file:///home/hajisaeed/qcar2_sim/install/qcar2/share/qcar2/meshes/QCarWheel.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="Black"/>
         </visual>
@@ -290,7 +290,7 @@
         <visual>
             <origin rpy="-1.5708 0 3.14159" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="file:///home/hammad/rosbot_ws/install/qcar2/share/qcar2/meshes/QCarWheel.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="file:///home/hajisaeed/qcar2_sim/install/qcar2/share/qcar2/meshes/QCarWheel.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="Black"/>
         </visual>
@@ -317,7 +317,7 @@
         <visual>
             <origin rpy="1.5708 0 3.14159" xyz="0 0 0"/>    
             <geometry>
-                <mesh filename="file:///home/hammad/rosbot_ws/install/qcar2/share/qcar2/meshes/QCarWheel.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="file:///home/hajisaeed/qcar2_sim/install/qcar2/share/qcar2/meshes/QCarWheel.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="Black"/>
         </visual>

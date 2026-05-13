@@ -1,0 +1,32 @@
+[0.058s] Invoking command in '/home/hajisaeed/qcar2_sim/build/qcar2': /usr/bin/cmake /home/hajisaeed/qcar2_sim/src/urdf_representations/qcar2 -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/hajisaeed/qcar2_sim/install/qcar2
+[0.509s] -- The C compiler identification is GNU 13.3.0
+[1.218s] -- The CXX compiler identification is GNU 13.3.0
+[1.726s] -- Detecting C compiler ABI info
+[1.991s] -- Detecting C compiler ABI info - done
+[2.005s] -- Check for working C compiler: /usr/bin/cc - skipped
+[2.006s] -- Detecting C compile features
+[2.007s] -- Detecting C compile features - done
+[2.059s] -- Detecting CXX compiler ABI info
+[2.272s] -- Detecting CXX compiler ABI info - done
+[2.286s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[2.287s] -- Detecting CXX compile features
+[2.288s] -- Detecting CXX compile features - done
+[2.948s] -- Configuring incomplete, errors occurred!
+[2.949s] [31mCMake Error at CMakeLists.txt:5 (find_package):
+[2.950s]   By not providing "Findament_cmake.cmake" in CMAKE_MODULE_PATH this project
+[2.950s]   has asked CMake to find a package configuration file provided by
+[2.951s]   "ament_cmake", but CMake did not find one.
+[2.952s] 
+[2.955s]   Could not find a package configuration file provided by "ament_cmake" with
+[2.956s]   any of the following names:
+[2.956s] 
+[2.958s]     ament_cmakeConfig.cmake
+[2.960s]     ament_cmake-config.cmake
+[2.961s] 
+[2.962s]   Add the installation prefix of "ament_cmake" to CMAKE_PREFIX_PATH or set
+[2.962s]   "ament_cmake_DIR" to a directory containing one of the above files.  If
+[2.963s]   "ament_cmake" provides a separate development package or SDK, be sure it
+[2.964s]   has been installed.
+[2.964s] 
+[2.965s] [0m
+[2.970s] Invoked command in '/home/hajisaeed/qcar2_sim/build/qcar2' returned '1': /usr/bin/cmake /home/hajisaeed/qcar2_sim/src/urdf_representations/qcar2 -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/hajisaeed/qcar2_sim/install/qcar2
