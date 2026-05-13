@@ -39,11 +39,22 @@ cd ~/qcar2_sim
 colcon build --symlink-install
 ```
 ## Running the Simulation
+###Temrminal 1:
 Always source the workspace before launching:
 ```bash
 source install/setup.bash
 ros2 launch qcar2 simulation.launch.py
 ```
+
+###Terminal 2:
+Visalizign the Camera
+To see the front camera feed, run:
+
+```bash
+ros2 run rqt_image_view rqt_image_view
+````
+
+Select topic: `/qcar2/front_camera/image`
 
 ## Github Flows
 Creating a New Feature Branch
