@@ -1,46 +1,55 @@
-# QCar2 Simulation in Gazebo Harmonic
+# QCar2 Simulation Project
 
-This repository contains the simulation for the QCar2 using ROS 2 and Gazebo Harmonic.
+This repository contains the ROS 2 Jazzy and Gazebo Harmonic simulation environment for the QCar2. 
 
 ## Prerequisites
-Ensure you have ROS 2 (Jazzy/Humble) and Gazebo Harmonic installed.
-
-## Setup Instructions
-
-### 1. Build the entire workspace
-```bash
-colcon build --symlink-install
-```
-
-### 2. Source the setup
-```bash
-source install/setup.bash
-```
+* **OS:** Ubuntu 24.04 (via WSL2)
+* **ROS 2 Distribution:** Jazzy Jalisco
+* **Simulator:** Gazebo Harmonic
+* **Python:** 3.12+
 
 ---
 
-## Running the Simulation
+## 1. Setup and Installation
 
-### Graphics Optimization (Optional)
-If you are using an **Nvidia GPU**, run these exports to improve rendering performance:
-```bash
-export __NV_PRIME_RENDER_OFFLOAD=1
-export __GLX_VENDOR_LIBRARY_NAME=nvidia
-```
+### Clone the Repository
 
-### Terminal 1: Launch Gazebo
-Tell Gazebo where to find the resources and launch the lab world:
-```bash
-export GZ_SIM_RESOURCE_PATH=~/rosbot_ws/install/qcar2/share/
-gz sim -r ~/rosbot_ws/src/husarion_gz_worlds/worlds/lab_track.sdf
-```
+git clone -b main [https://github.com/hajisaeedaslam/qcar2_sim.git](https://github.com/hajisaeedaslam/qcar2_sim.git)
+cd ~/qcar2_sim
 
-### Terminal 2: Spawn the QCar2
-In a new terminal, source the workspace and create the entity:
-```bash
-source ~/rosbot_ws/install/setup.bash
 
-ros2 run ros_gz_sim create -world lab_track \
-  -file ~/rosbot_ws/install/qcar2/share/qcar2/urdf/QCar2.urdf \
-  -name qcar2 -x 0.0 -y 0.0 -z 0.3
-```
+# Fix Hardcoded Paths
+# Currently, URDF/Xacro meshes use absolute paths. Ensure you update these to match your local user directory:
+
+# Search for old paths
+grep -r "home/hajisaeed" src/urdf_representations
+
+# Update paths in the relevant URDF/Xacro files to:
+# /home/[YOUR_USERNAME]/qcar2_sim/...
+
+
+# Install Dependencies
+sudo rosdep init
+rosdep update
+rosdep install --from-paths src --ignore-src -r -y
+
+# Building the Project
+cd ~/qcar2_sim
+colcon build --symlink-install
+
+# Running the Simulation
+# Always source the workspace before launching:
+
+source install/setup.bash
+ros2 launch qcar2 simulation.launch.py
+
+# Creating a New Feature Branch
+git checkout -b branchName
+
+# Pushing changes safely
+git add .
+git commit -m "Description of changes"
+git push origin branchName
+
+# Reverting if things break
+git checkout main
